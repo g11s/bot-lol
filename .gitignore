@@ -1,2 +1,5 @@
 output
 __pycache__
+build
+dist
+app.spec
