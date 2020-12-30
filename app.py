@@ -15,15 +15,15 @@ def run():
 
     print("\nPronto, agora pode iniciar a partida!\n")
 
-    print("Se precisar trocar o campeão que deseja banir, pressione CTRL + B")
+    print("Se precisar trocar o campeão que deseja banir, pressione CTRL + D")
     print("Se precisar trocar o campeão que deseja selecionar, pressione CTRL + S")
     print("Se precisar sair, pressione ESQ\n")
 
     while True:
-        if keyboard.is_pressed("CTRL") and keyboard.is_pressed("B"):
+        if keyboard.is_pressed("CTRL") and keyboard.is_pressed("D"):
             banChampionText = input("Insira o nome do campeão que deseja banir: ")
             print("\nEntendido capitão!")
-            print(f"Agora baniremos {selectChampionText}")
+            print(f"Agora baniremos {banChampionText}")
 
         if keyboard.is_pressed("CTRL") and keyboard.is_pressed("S"):
             selectChampionText = input("Insira o nome do campeão que deseja selecionar: ")
