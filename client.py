@@ -55,6 +55,8 @@ class Client:
 
     @staticmethod
     def checkIfFinish(message: str):
+        print(f"{message} personagem na partida!")
+        
         if message == "Selecionei":
             print("\nO programa foi finalizado!")
             sys.exit()

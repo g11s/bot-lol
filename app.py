@@ -7,21 +7,19 @@ from client import Client
 
 from config import pathImages
 
-
 def run():
     banChampionText = input("Insira o nome do campeão que deseja banir: ")
     selectChampionText = input(
         "Insira o nome do campeão que deseja selecionar: ")
-    foundMatch = False
 
     print("\nPronto, agora pode iniciar a partida!\n")
 
-    print("Se precisar trocar o campeão que deseja banir, pressione CTRL + D")
+    print("Se precisar trocar o campeão que deseja banir, pressione CTRL + X")
     print("Se precisar trocar o campeão que deseja selecionar, pressione CTRL + S")
     print("Se precisar sair, pressione ESQ\n")
 
     while True:
-        if keyboard.is_pressed("CTRL") and keyboard.is_pressed("D"):
+        if keyboard.is_pressed("CTRL") and keyboard.is_pressed("X"):
             banChampionText = input(
                 "Insira o nome do campeão que deseja banir: ")
             print("\nEntendido capitão!")
@@ -42,9 +40,7 @@ def run():
 
         if coordinatesAcceptMatch:
             Client.acceptMatch(coordinatesAcceptMatch)
-            foundMatch = True
 
-    while foundMatch:
         coordinatesMessageDeclareChampion = ScreenManager.search_image_on_screen(
             image_to_search=pathImages + "MessageDeclareChampion.png")
 
@@ -75,8 +71,6 @@ def selectOrBanChampion(champion: str, message: str):
         Client.selectChampion()
     else:
         Client.banChampion()
-
-    print(f"{message} personagem na partida!")
 
     Client.checkIfFinish(message)
 
