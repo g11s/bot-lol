@@ -1,4 +1,5 @@
 import os
+import sys
 import time
 
 from screen_manager import ScreenManager
@@ -6,33 +7,32 @@ from screen_manager import ScreenManager
 pathImages = os.path.dirname(os.path.realpath(__file__)) + "\images\\"
 pathChampionsImages = pathImages + "champions\\"
 banChampionText = "Yasuo"
-selectChampionText = "Azir"
+selectChampionText = "Kayn"
 
 def run():
     while True:
-        if ScreenManager.is_app_focused("league of legends"):
-            coordinatesAcceptMatch = ScreenManager.search_image_on_screen(image_to_search=pathImages + "AcceptMatch.png")
+        coordinatesAcceptMatch = ScreenManager.search_unique_image_on_screen(image_to_search=pathImages + "AcceptMatch.png")
 
-            coordinatesMessageDeclareChampion = ScreenManager.search_image_on_screen(
-                image_to_search=pathImages + "MessageDeclareChampion.png")
+        coordinatesMessageDeclareChampion = ScreenManager.search_unique_image_on_screen(
+            image_to_search=pathImages + "MessageDeclareChampion.png")
 
-            coordinatesMessageBanChampion = ScreenManager.search_image_on_screen(
-                image_to_search=pathImages + "MessageBanChampion.png")
+        coordinatesMessageBanChampion = ScreenManager.search_unique_image_on_screen(
+            image_to_search=pathImages + "MessageBanChampion.png")
 
-            coordinatesMessageSelectChampion = ScreenManager.search_image_on_screen(
-                image_to_search=pathImages + "MessageChooseChampion.png")
+        coordinatesMessageSelectChampion = ScreenManager.search_unique_image_on_screen(
+            image_to_search=pathImages + "MessageChooseChampion.png")
 
-            for coordinate in coordinatesAcceptMatch:
-                acceptMatch(coordinate)
+        if coordinatesAcceptMatch:
+            acceptMatch(coordinatesAcceptMatch)
 
-            for coordinate in coordinatesMessageDeclareChampion:
-                selectOrBanChampion(selectChampionText, "Declarei")
+        if coordinatesMessageDeclareChampion:
+            selectOrBanChampion(selectChampionText, "Declarei")
 
-            for coordinate in coordinatesMessageBanChampion:
-                selectOrBanChampion(banChampionText, "Bani")
+        if coordinatesMessageBanChampion:
+            selectOrBanChampion(banChampionText, "Bani")
 
-            for coordinate in coordinatesMessageSelectChampion:
-                selectOrBanChampion(selectChampionText, "Selecionei")
+        if coordinatesMessageSelectChampion:
+            selectOrBanChampion(selectChampionText, "Selecionei")
 
 def acceptMatch(coordinate: int):
     ScreenManager.click_on_screen(coordenate_to_click=coordinate)
@@ -49,6 +49,7 @@ def selectOrBanChampion(champion: str, message: str):
 
     coordinateSelectChampion = ScreenManager.search_unique_image_on_screen(
         image_to_search=pathChampionsImages + champion + ".png")
+
     ScreenManager.click_on_screen(coordenate_to_click=coordinateSelectChampion)
     time.sleep(2)
 
@@ -64,5 +65,8 @@ def selectOrBanChampion(champion: str, message: str):
     time.sleep(2)
 
     print(f"{message} personagem na partida!")
+
+    if message == "Selecionei":
+        sys.exit()
 
 run()
