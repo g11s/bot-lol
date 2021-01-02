@@ -12,8 +12,8 @@ def start():
         if keyboard.is_pressed("ctrl+s"):
             Core.changeSelect()
 
-        if keyboard.is_pressed("esq"):
-            print("\nSaindo do programa BotLol")
+        if keyboard.is_pressed("esc"):
+            Core.exit()
             break
 
         Core.checkNeedAcceptMatch()
