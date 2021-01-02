@@ -4,7 +4,7 @@ import sys
 
 from screen_manager import ScreenManager
 
-from config import pathImages, pathChampionsImages
+from config import pathImages, pathChampionsImages, pathBanChampionsImages
 
 
 class Client:
@@ -12,21 +12,32 @@ class Client:
     @staticmethod
     def acceptMatch(coordinate: int):
         ScreenManager.click_on_screen(coordenate_to_click=coordinate)
-        time.sleep(2)
         print("Aceitei a partida!")
+        time.sleep(2)
 
     @staticmethod
     def findInputSearch():
         coordinatesSearchChampion = ScreenManager.search_image_on_screen(
             image_to_search=pathImages + "SearchChampion.png")
+
         ScreenManager.click_on_screen(
             coordenate_to_click=coordinatesSearchChampion)
         time.sleep(2)
 
     @staticmethod
     def writeInSearch(champion: str):
+        ScreenManager.clear()
+        time.sleep(1)
+
         ScreenManager.write(champion)
-        time.sleep(3)
+        time.sleep(1)
+
+    @staticmethod
+    def checkChampionIsBan(champion: str):
+        coordenateBanChampion = ScreenManager.search_image_on_screen(
+            image_to_search=pathBanChampionsImages + champion + ".png")
+
+        return coordenateBanChampion
 
     @staticmethod
     def clickInChampion(champion: str):
@@ -35,28 +46,31 @@ class Client:
 
         ScreenManager.click_on_screen(
             coordenate_to_click=coordinateSelectChampion)
+
         time.sleep(2)
 
     @staticmethod
     def selectChampion():
-        coordinateBanChampion = ScreenManager.search_image_on_screen(
+        coordinateConfirmChampion = ScreenManager.search_image_on_screen(
             image_to_search=pathImages + "ConfirmChampion.png")
         ScreenManager.click_on_screen(
-            coordenate_to_click=coordinateBanChampion)
+            coordenate_to_click=coordinateConfirmChampion)
+
         time.sleep(2)
 
     @staticmethod
     def banChampion():
-        coordinateConfirmChampion = ScreenManager.search_image_on_screen(
+        coordinateBanChampion = ScreenManager.search_image_on_screen(
             image_to_search=pathImages + "BanChampion.png")
         ScreenManager.click_on_screen(
-            coordenate_to_click=coordinateConfirmChampion)
+            coordenate_to_click=coordinateBanChampion)
+
         time.sleep(2)
 
     @staticmethod
     def checkIfFinish(message: str):
         print(f"{message} personagem na partida!")
-        
+
         if message == "Selecionei":
             print("\nO programa foi finalizado!")
             sys.exit()
