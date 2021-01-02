@@ -20,7 +20,7 @@ class Core:
 
         print("Se precisar trocar o campeão que deseja banir, pressione CTRL + X")
         print("Se precisar trocar o campeão que deseja selecionar, pressione CTRL + S")
-        print("Se precisar sair, pressione ESQ\n")
+        print("Se precisar sair, pressione ESC\n")
 
     @staticmethod
     def changeBan():
@@ -73,6 +73,10 @@ class Core:
 
         if coordinatesMessageSelectChampion:
             selectOrBanChampion(selectChampionText, "Selecionei")
+
+    @staticmethod
+    def exit():
+        print("\nSaindo do programa BotLol")
 
 
 def selectOrBanChampion(champion: str, message: str):
