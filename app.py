@@ -6,13 +6,13 @@ def start():
     Core.setup()
 
     while True:
-        if keyboard.is_pressed("CTRL") and keyboard.is_pressed("X"):
+        if keyboard.is_pressed("ctrl+x"):
             Core.changeBan()
 
-        if keyboard.is_pressed("CTRL") and keyboard.is_pressed("S"):
+        if keyboard.is_pressed("ctrl+s"):
             Core.changeSelect()
 
-        if keyboard.is_pressed("ESC"):
+        if keyboard.is_pressed("esq"):
             print("\nSaindo do programa BotLol")
             break
 
