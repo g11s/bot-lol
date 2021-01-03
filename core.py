@@ -1,4 +1,4 @@
-from screen_manager import ScreenManager
+from screen import Screen
 from config import pathImages
 from client import Client
 
@@ -48,7 +48,7 @@ class Core:
 
     @staticmethod
     def checkNeedAcceptMatch():
-        coordinatesAcceptMatch = ScreenManager.search_image_on_screen(
+        coordinatesAcceptMatch = Screen.search_image_on_screen(
             image_to_search=pathImages + "AcceptMatch.png")
 
         if coordinatesAcceptMatch:
@@ -56,7 +56,7 @@ class Core:
 
     @staticmethod
     def checkNeedSelectChampion():
-        coordinatesMessageDeclareChampion = ScreenManager.search_image_on_screen(
+        coordinatesMessageDeclareChampion = Screen.search_image_on_screen(
             image_to_search=pathImages + "MessageDeclareChampion.png")
 
         if coordinatesMessageDeclareChampion:
@@ -64,7 +64,7 @@ class Core:
 
     @staticmethod
     def checkNeedBanChampion():
-        coordinatesMessageBanChampion = ScreenManager.search_image_on_screen(
+        coordinatesMessageBanChampion = Screen.search_image_on_screen(
             image_to_search=pathImages + "MessageBanChampion.png")
 
         if coordinatesMessageBanChampion:
@@ -72,7 +72,7 @@ class Core:
 
     @staticmethod
     def checkNeedChooseChampion():
-        coordinatesMessageSelectChampion = ScreenManager.search_image_on_screen(
+        coordinatesMessageSelectChampion = Screen.search_image_on_screen(
             image_to_search=pathImages + "MessageChooseChampion.png")
 
         if coordinatesMessageSelectChampion:
@@ -140,7 +140,7 @@ def selectOrBanChampion(champions: str, message: str):
     sumAlreadyBanOrSelect(message)
 
     if Client.checkChampionIsBan(champion):
-        print("Ops! Esse campeão já foi banido ou selecionado.")
+        print("Ops! Esse campeão já foi banido, selecionado, ou você não tem ainda.")
         return
 
     if message == "Bani":

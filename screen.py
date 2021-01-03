@@ -3,7 +3,7 @@ import pyautogui
 import cv2
 import win32gui
 
-class ScreenManager:
+class Screen:
 
     @staticmethod
     def is_app_focused(app_title_name: str):
