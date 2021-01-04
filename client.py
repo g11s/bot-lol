@@ -15,7 +15,7 @@ class Client:
         time.sleep(2)
 
     @staticmethod
-    def findInputSearch():
+    def clickInputSearch():
         coordinatesSearchChampion = Screen.search_image_on_screen(
             image_to_search=pathImages + "SearchChampion.png")
 
@@ -26,27 +26,45 @@ class Client:
     @staticmethod
     def writeInSearch(champion: str):
         Screen.clear()
-        time.sleep(1)
+        time.sleep(0.5)
 
         Screen.write(champion)
         time.sleep(1)
 
     @staticmethod
-    def checkChampionIsBan(champion: str):
+    def checkChampionIsBanned():
         coordenateBanChampion = Screen.search_image_on_screen(
-            image_to_search=pathChampionsImages + champion + ".png")
+            image_to_search=pathImages + "banned.png")
+
+        if coordenateBanChampion is None:
+            return False
 
         return coordenateBanChampion
+
+    @staticmethod
+    def checkChampionIsSelected():
+        coordenateSelectChampion = Screen.search_image_on_screen(
+            image_to_search=pathImages + "selected.png")
+
+        if coordenateSelectChampion is None:
+            return False
+
+        return coordenateSelectChampion
 
     @staticmethod
     def clickInChampion(champion: str):
         coordinateSelectChampion = Screen.search_image_on_screen(
             image_to_search=pathChampionsImages + champion + ".png")
 
+        if coordinateSelectChampion is None:
+            return False
+
         Screen.click_on_screen(
             coordenate_to_click=coordinateSelectChampion)
 
         time.sleep(2)
+
+        return True
 
     @staticmethod
     def selectChampion():

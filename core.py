@@ -109,10 +109,12 @@ def nextSelectOrBanChampion(message: str):
     if message == "Bani":
         banChampionText = input("Insira o nome do próximo campeão para ser banido: ")
         posBanChampion = 0
+        return getChampionInList(banChampionText, message)
     else:
         selectChampionText = input(
             "Insira o nome do próximo campeão para ser selecionado: ")
         posSelectChampion = 0
+        return getChampionInList(selectChampionText, message)
 
 
 def sumAlreadyBanOrSelect(message: str):
@@ -125,22 +127,27 @@ def sumAlreadyBanOrSelect(message: str):
 
 
 def selectOrBanChampion(champions: str, message: str):
-    Client.findInputSearch()
-
     champion = getChampionInList(champions, message)
 
-    if champion == False:
-        nextSelectOrBanChampion(message)
-        return
+    if not champion:
+        champion = nextSelectOrBanChampion(message)
+
+    Client.clickInputSearch()
 
     Client.writeInSearch(champion)
 
-    Client.clickInChampion(champion)
-
     sumAlreadyBanOrSelect(message)
 
-    if Client.checkChampionIsBan(champion):
-        print("Ops! Esse campeão já foi banido, selecionado, ou você não tem ainda.")
+    if Client.checkChampionIsBanned():
+        print("Ops! Esse campeão já foi banido.")
+        return
+
+    if not Client.clickInChampion(champion):
+        print("Ops! Você não possui esse campeão.")
+        return
+
+    if Client.checkChampionIsSelected():
+        print("Ops! Esse campeão já foi selecionado.")
         return
 
     if message == "Bani":
