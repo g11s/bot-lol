@@ -29,8 +29,8 @@ Um bot criado para automatizar o processo da fila do LOL para quem está cansado
 * [Tecnologias](#computer-tecnologias)
 * [Funcionalidades](#rocket-funcionalidades)
 * [Como rodar](#construction_worker-como-rodar)
-* [License](#closed_book-license)
 * [Equipe](#bulb-equipe)
+* [License](#closed_book-license)
 
 ### Screenshot
 <div style="display: flex; flex-direction: 'row';">
