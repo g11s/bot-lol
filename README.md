@@ -70,7 +70,7 @@ $ pip install keyboard opencv-python pyautogui
 # Rode a aplicação
 $ python app.py
 ```
-Se estiver no Windows você pode baixar nosso binário também nos [releases](https://github.com/g11s/bot-lol/releases) com isso, não precisa passar por todos esses passos.
+Se estiver no Windows você pode baixar nosso binário também nos [releases](https://github.com/g11s/bot-lol/releases), com isso, não precisa passar por todos esses passos.
 
 # :bulb: Equipe
 - [Gabriel](https://www.linkedin.com/in/dev-gabriel-mendes/)
