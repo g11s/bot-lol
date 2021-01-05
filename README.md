@@ -16,9 +16,9 @@
   </a>
 </p>
 
-Um bot criado para automatizar o processo da fila do LOL para quem está cansado de perder PDL.
-
 <div align="center">
+  Um bot criado para automatizar o processo da fila do LOL para quem está cansado de perder PDL.
+   
   <sub>Built by
     <a href="https://github.com/g11s">g11s</a>
   </sub>
