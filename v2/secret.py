@@ -1,5 +1,7 @@
 import os
 import base64
+import time
+
 import urllib3
 
 class Secret:
@@ -20,6 +22,7 @@ class Secret:
             authorization = authBSFBytes.decode('ascii')
         except:
             print("Você precisa abrir o LOL e fazer login antes.")
-            exit()
+            time.sleep(10)
+            os._exit(1)
 
         return authorization, port
