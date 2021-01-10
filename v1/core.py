@@ -9,7 +9,7 @@ posSelectChampion = 0
 
 
 class Core:
-
+    
     @staticmethod
     def setup():
         global banChampionText, selectChampionText
@@ -122,7 +122,7 @@ def sumAlreadyBanOrSelect(message: str):
 
     if message == 'Bani':
         posBanChampion = posBanChampion + 1
-    else:
+    elif message == 'Selecionei':
         posSelectChampion = posSelectChampion + 1
 
 
@@ -131,6 +131,10 @@ def selectOrBanChampion(champions: str, message: str):
 
     if not champion:
         champion = nextSelectOrBanChampion(message)
+
+    # Se remover pesquisa e click
+    # Se o campeao for banido ou selecionado
+    # Não é feito a pesquisa
 
     Client.clickInputSearch()
 
