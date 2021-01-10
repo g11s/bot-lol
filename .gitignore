@@ -1,5 +1,10 @@
-output
-__pycache__
-build
-dist
-app.spec
+v1/output
+v1/__pycache__
+v1/build
+v1/dist
+v1/app.spec
+v2/output
+v2/__pycache__
+v2/build
+v2/dist
+v2/app.spec
